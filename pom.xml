@@ -7,6 +7,16 @@
     <groupId>org.example</groupId>
     <artifactId>Sprint_6.Project</artifactId>
     <name>Спринт 6. Проект</name>
+    <developers>
+        <developer>
+            <name>Габдуллин Адель</name>
+            <roles>
+                <role>
+                    QA engineer
+                </role>
+            </roles>
+        </developer>
+    </developers>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -15,21 +25,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <developers>
-        <developer>
-            <name>Габдуллин Адель</name>
-            <roles>
-                <role>QA engineer</role>
-            </roles>
-        </developer>
-    </developers>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>11</source>
                     <target>11</target>
@@ -38,29 +39,32 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.12.1</version>
+                <version>3.7.1</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.4.5</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>2.22.2</version>
                 <configuration>
-                    <argLine>--illegal-access=permit</argLine>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
-
+                    <!--suppress UnresolvedMavenProperty -->
+                    <argLine>${surefireArgLine}</argLine>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
+                <version>0.8.7</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -99,13 +103,14 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.5.0</version>
+            <version>3.12.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
-            <version>1.14.8</version>
+            <version>1.11.16</version>
         </dependency>
     </dependencies>
+
 </project>
